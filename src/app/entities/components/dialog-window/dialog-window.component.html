@@ -1,0 +1,122 @@
+<mat-dialog-content>
+  <header>
+    <h2>Добавление Компьютерный клуб</h2>
+  </header>
+  <form class="example-form">
+    <div>
+      <h3>Введите Ваши ФИО</h3>
+      <div>
+        <mat-form-field class="example-form-field">
+          <mat-label>
+            ФИО
+          </mat-label>
+          <input [formControl]=nameControl
+                 [errorStateMatcher]="matcher"
+                 matInput>
+          <mat-hint>
+            Корректные данные
+          </mat-hint>
+          <mat-error *ngIf="nameControl.hasError('pattern') && !nameControl.hasError('required')">
+            Вводить можно только <strong>буквы!</strong>
+          </mat-error>
+          <mat-error *ngIf="nameControl.hasError('required')">
+            Нужно ввести Ваши ФИО
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+  <div>
+    <h3>Выберите номер компьютера</h3>
+    <div>
+      <mat-form-field class="example-form-field">
+        <mat-select [formControl]="numberOfComputerControl">
+          <mat-option value="1">1</mat-option>
+          <mat-option value="2">2</mat-option>
+          <mat-option value="3">3</mat-option>
+          <mat-option value="4">4</mat-option>
+          <mat-option value="5">5</mat-option>
+          <mat-option value="6">6</mat-option>
+          <mat-option value="7">7</mat-option>
+          <mat-option value="8">8</mat-option>
+          <mat-option value="9">9</mat-option>
+        </mat-select>
+        <mat-error *ngIf="numberOfComputerControl.hasError('required')">
+          Нужно выбрать номер стола
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+  <div>
+    <h3>Выберите дату брони</h3>
+    <div>
+      <mat-form-field class="example-form-field">
+        <input [formControl]="dateControl"
+               [matDatepicker]="picker"
+               [max]="getToday()"
+               matInput>
+        <mat-hint>
+          дд.мм.гггг
+        </mat-hint>
+        <mat-datepicker-toggle [for]="picker"
+                               matIconSuffix/>
+        <mat-datepicker #picker/>
+      </mat-form-field>
+    </div>
+  </div>
+  <div>
+    <h3>Введите название <strong>игры</strong>, в которую хотите поиграть</h3>
+    <mat-form-field class="example-form-field">
+      <mat-label>
+        Игра
+      </mat-label>
+      <input [formControl]="gameControl"
+             type="text"
+             matInput>
+      <mat-error *ngIf="gameControl.hasError('required')">
+        Введите название игры
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div>
+    <section class="example-section">
+      <mat-checkbox [formControl]="checkControl"
+                    class="example-margin">
+        Согласны на обработку Ваших персональных данных?
+      </mat-checkbox>
+    </section>
+  </div>
+  <div>
+    <h3>Введите Ваш номер телефона</h3>
+    <mat-form-field class="example-form-field">
+      <mat-label>
+        Номер телефона
+      </mat-label>
+      <span matTextPrefix>+7 &nbsp;</span>
+      <input [formControl]="phoneControl"
+             [mask]="'(000)000-00-00'"
+             placeholder="(000)000-00-00"
+             type="tel"
+             matInput>
+      <mat-error *ngIf="phoneControl.hasError('required')">
+        Введите номер телефона по маске +7(999)999-99-99
+      </mat-error>
+    </mat-form-field>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions class="button">
+  <button (click)="close()"
+          class="button-exit"
+          mat-button
+          mat-dialog-close>
+    Отменить
+  </button>
+  <button [disabled]="pcClubForm.invalid"
+          (click)="add()"
+          class="button-add"
+          color="accent"
+          mat-button
+          mat-raised-button>
+    Сохранить
+  </button>
+</mat-dialog-actions>
