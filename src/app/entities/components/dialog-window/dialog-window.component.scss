@@ -1,34 +1,31 @@
-.example-form {
-  width: 400px;
-}
+:host {
+  .example-form {
+    width: 400px;
+  }
 
-.example-form-field {
-  text-align: center;
-  width: 475px;
-}
+  .example-form-field {
+    text-align: center;
+    width: 475px;
+  }
 
-example-section {
-  margin: 12px 0;
-}
+  example-section {
+    margin: 12px 0;
+  }
 
-.example-margin {
-  margin: 0 12px;
-}
+  .example-margin {
+    margin: 0 12px;
+  }
 
-.h2 {
-  align: 'left';
-  font-weight: bold;
-}
+  .button-exit, button-add {
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+  }
 
-.button-exit, button-add {
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-}
-
-.button {
-  display: flex;
-  justify-content: space-between;
-  width: 425px;
-  margin: 0 auto;
+  .button {
+    display: flex;
+    justify-content: space-between;
+    width: 425px;
+    margin: 0 auto;
+  }
 }

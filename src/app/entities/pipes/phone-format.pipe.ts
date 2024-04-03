@@ -1,12 +1,12 @@
 import { Pipe, PipeTransform } from "@angular/core";
 
 @Pipe ({
-  name: 'phoneTransform',
+  name: 'phoneFormatPipe',
   standalone: true,
   pure: true
 })
 
-export class PhoneFormatPipe implements PipeTransform {
+export class phoneFormatPipe implements PipeTransform {
   /**
    * Из полученных данных мы строим новую строчку
    * @param phoneNumber - исходная строка

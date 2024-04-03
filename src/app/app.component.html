@@ -39,7 +39,7 @@
     </th>
     <td *matCellDef="let element"
         mat-cell>
-      {{ element.date | dateTransform }}
+      {{ element.date | dateFormatPipe }}
     </td>
   </ng-container>
 
@@ -50,7 +50,7 @@
     </th>
     <td *matCellDef="let element"
         mat-cell>
-      {{ element.phone | phoneTransform }}
+      {{ element.phone | phoneFormatPipe }}
     </td>
   </ng-container>
 
@@ -78,7 +78,9 @@
           <div class="example-button-container">
             <button color="primary"
                     mat-fab>
-              <img src="./assets/images/trash.svg" alt = "button of delete"  class = 'del-buttom'>
+              <img src="./assets/images/trash.svg"
+                   alt = "button of delete"
+                   class = 'del-buttom'>
             </button>
           </div>
         </div>
