@@ -18,7 +18,7 @@ export class FormBuilderService {
       'numberOfComputer': [null, [Validators.required]],
       'date': [null, [Validators.required]],
       'game': [null, [Validators.required]],
-      'check': [null, [Validators.required]],
+      'check': [null, [Validators.required, Validators.pattern(/true/)]],
       'phone': [null, [Validators.required]],
     });
   }
