@@ -3,8 +3,8 @@ import { MatDialog, MatDialogRef } from "@angular/material/dialog";
 import { IDialogData } from "./entities/interfaces/dialog-data.interface";
 import { DialogWindowComponent } from "./entities/components/dialog-window/dialog-window.component";
 import { IColumn } from "./entities/interfaces/column.interface";
-import { USER_DATA } from "./entities/data-const/user-data";
-import { COLUMNS_SCHEMA } from "./entities/data-const/columns-data";
+import { USER_DATA } from "./entities/shared/user-data";
+import { COLUMNS_SCHEMA } from "./entities/shared/columns-data";
 
 @Component({
   selector: 'app-root',

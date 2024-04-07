@@ -1,4 +1,4 @@
-import {IDialogData} from "../interfaces/dialog-data.interface";
+import { IDialogData } from "../interfaces/dialog-data.interface";
 
 export const USER_DATA: IDialogData[] = [
   {id: 1, name: 'Сулимов Александр Дмитриевич', numberOfComputer: '1', date: '03/14/2024', game: 'CS2', phone: '9128457655'},
