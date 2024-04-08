@@ -42,9 +42,9 @@ export class AppComponent {
       if (result) {
         this.dataSource.forEach ((item: object, index: number): void => {
           if (this.dataSource[index] == editElement) {
-            let a = JSON.parse(JSON.stringify(this.dataSource));
-            a[index] = result;
-            this.dataSource = a;
+            const newDataSource = JSON.parse(JSON.stringify(this.dataSource));
+            newDataSource[index] = result;
+            this.dataSource = newDataSource;
           }
         });
       }

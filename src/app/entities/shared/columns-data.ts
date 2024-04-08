@@ -1,4 +1,4 @@
-import {IColumn} from "../interfaces/column.interface";
+import { IColumn } from "../interfaces/column.interface";
 
 export const COLUMNS_SCHEMA: IColumn[] = [
   {

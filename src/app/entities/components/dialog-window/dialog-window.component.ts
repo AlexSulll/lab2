@@ -52,8 +52,15 @@ export class DialogWindowComponent implements OnInit {
    * Функция, которая возвращает дату в данных момент времени.
    * Создана для ограничения ввода будущей даты
    */
-  public getToday() {
+  public getToday(): string {
     return new Date().toISOString().split('T')[0];
+  }
+
+  /**
+   * функция для ограничения даты в 1900 год
+   */
+  public minDate(): Date {
+    return new Date(1900, 0, 1);
   }
   public get nameControl(): FormControl {
     return this.pcClubForm.get('name') as FormControl<string | null>;

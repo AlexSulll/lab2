@@ -54,6 +54,7 @@
         <input [formControl]="dateControl"
                [matDatepicker]="picker"
                [max]="getToday()"
+               [min]="minDate()"
                matInput>
         <mat-hint>
           дд.мм.гггг
