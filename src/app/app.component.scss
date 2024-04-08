@@ -36,8 +36,15 @@
   .example-button-container {
     display: flex;
     justify-content: center;
-    width: 50px;
+    width: 120px;
   }
+
+  .example-button-container-edit {
+    display: flex;
+    justify-content: center;
+    width: 160px;
+  }
+
   .del-buttom {
     width: 24px;
   }

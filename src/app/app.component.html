@@ -65,6 +65,27 @@
     </td>
   </ng-container>
 
+  <ng-container matColumnDef="edit">
+    <th *matHeaderCellDef
+        mat-header-cell>
+      Редактировать запись
+    </th>
+    <td *matCellDef="let element"
+        mat-cell>
+      <div class="example-button-row">
+        <div class="example-flex-container">
+          <div class="example-button-container-edit">
+            <button (click)="openDialogEdit(element.id)"
+                     color="primary"
+                    mat-raised-button>
+              Изменить
+            </button>
+          </div>
+        </div>
+      </div>
+    </td>
+  </ng-container>
+
   <ng-container matColumnDef="button">
     <th *matHeaderCellDef
         mat-header-cell>

@@ -19,7 +19,7 @@ export class dateFormatPipe implements PipeTransform {
    * @param timezone
    * @param locale
    */
-  transform(value: Date | string | number | null | undefined, format?: string, timezone?: string, locale?: string): string | null {
+  public transform(value: Date | string | number | null | undefined, format?: string, timezone?: string, locale?: string): string | null {
     return this.dateTransform.transform(value, format || 'dd.MM.yyyy', timezone, locale);
   }
 }

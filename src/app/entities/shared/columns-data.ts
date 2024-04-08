@@ -1,4 +1,6 @@
-export const COLUMNS_SCHEMA = [
+import {IColumn} from "../interfaces/column.interface";
+
+export const COLUMNS_SCHEMA: IColumn[] = [
   {
     key: "name",
     type: "text",
@@ -23,6 +25,11 @@ export const COLUMNS_SCHEMA = [
     key: "phone",
     type: "text",
     label: "Номер телефона"
+  },
+  {
+    key: "edit",
+    type: "button",
+    label: "Редактировать запись"
   },
   {
     key: "button",

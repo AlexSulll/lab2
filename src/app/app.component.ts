@@ -26,11 +26,27 @@ export class AppComponent {
     this.dataSource = this.dataSource.filter((element: IDialogData) => element.id !== id);
   }
   public openDialog(): void {
-    const dialogRef: MatDialogRef<DialogWindowComponent> = this.dialog.open(DialogWindowComponent, {width: '550px'});
+    const dialogRef: MatDialogRef<DialogWindowComponent> = this.dialog.open(DialogWindowComponent, {width: '550px', data: {id: (this.dataSource[this.dataSource.length - 1].id + 1 ?? 0), name: '', numberOfComputer: '', date: '', game: '', check: '', phone: ''}});
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         const value = {id: (this.dataSource[this.dataSource.length - 1].id + 1 ?? 0), ...result}
         this.dataSource = [...this.dataSource, value];
+      }
+    });
+  }
+  public openDialogEdit(id: number): void {
+    const editElement = this.dataSource.find((element: IDialogData) => element.id === id);
+    editElement.date = new Date(editElement.date);
+    const dialogRef: MatDialogRef<DialogWindowComponent> = this.dialog.open(DialogWindowComponent, {width: '550px', data: editElement});
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.dataSource.forEach ((item: object, index: number): void => {
+          if (this.dataSource[index] == editElement) {
+            let a = JSON.parse(JSON.stringify(this.dataSource));
+            a[index] = result;
+            this.dataSource = a;
+          }
+        });
       }
     });
   }

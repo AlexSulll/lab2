@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormGroupDirective, NgForm } from "@angular/forms";
 import { DateAdapter, ErrorStateMatcher, MAT_DATE_FORMATS } from "@angular/material/core";
 import { IDialogData } from "../../interfaces/dialog-data.interface";
@@ -8,7 +8,7 @@ import { provideNgxMask } from "ngx-mask";
 import { APP_DATE_FORMATS, AppDateAdapter } from "../../adapters/date.adapter";
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+  public isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
     const isSubmitted = form && form.submitted;
     return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
   }
@@ -19,7 +19,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   templateUrl: './dialog-window.component.html',
   styleUrls: ['./dialog-window.component.scss']
 })
-export class DialogWindowComponent {
+export class DialogWindowComponent implements OnInit {
   matcher: MyErrorStateMatcher = new MyErrorStateMatcher();
   public pcClubForm: FormGroup = this._formBuilderService.pcClubForm;
   constructor(
@@ -27,6 +27,12 @@ export class DialogWindowComponent {
     public dialogRef: MatDialogRef<DialogWindowComponent>,
     @Inject(MAT_DIALOG_DATA) public data: IDialogData,
   ) { }
+  /**
+   * Функция, которая передает данные в форму, для дальнейших изменений
+   */
+  public ngOnInit(): void {
+    this.pcClubForm.setValue(this.data);
+  }
   /**
    * Функция для добавления новых данных в таблицу. Объект строится по интерфейсу и передается
    * после закрытия диалогового окна.

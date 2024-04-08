@@ -14,6 +14,7 @@ export class FormBuilderService {
    */
   public get pcClubForm () {
     return this._formBuilder.group({
+      'id': [''],
       'name': [null, [Validators.pattern(/^[а-яА-ЯёЁa-zA-Z ]*$/), Validators.required]],
       'numberOfComputer': [null, [Validators.required]],
       'date': [null, [Validators.required]],
